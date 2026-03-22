@@ -11,6 +11,7 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarFooter,
 } from "../ui/sidebar";
 import {
   DropdownMenu,
@@ -19,7 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import type { ActivePage } from "./layout";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, User2 } from "lucide-react";
 import menuItems from "@/lib/constants/menuItems";
 interface SidebarProps {
   activePage: ActivePage;
@@ -89,6 +90,15 @@ const AppSidebar = ({
         </SidebarGroup>
       </SidebarContent>
       <SidebarRail />
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>
+              <User2 /> Mohannad Ali
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 };

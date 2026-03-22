@@ -11,6 +11,7 @@ import Analytics from "@/components/content/Analytics";
 import TeamChat from "@/components/content/TeamChat";
 import AppSidebar from "./AppSidebar";
 import useSidebarControl from "@/hooks/use-sidebar-control";
+import { SidebarInset, SidebarTrigger } from "../ui/sidebar";
 export type ActivePage =
   | "dashboard"
   | "contacts"
@@ -49,25 +50,28 @@ export default function CRMLayout() {
         sidebarControl={sidebarControl}
       />
       <div className="flex-1 flex flex-col">
-        <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="flex h-14 items-center justify-between px-4">
-            <div className="flex items-center gap-4">
-              sidebar trigger
-              <h1 className="text-lg font-semibold capitalize">{activePage}</h1>
+        <SidebarInset>
+          <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="flex h-14 items-center justify-between px-4">
+              <div className="flex items-center gap-4">
+                <SidebarTrigger />
+                <h1 className="text-lg font-semibold capitalize">
+                  {activePage}
+                </h1>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              >
+                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all duration-400 dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all duration-400 dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all duration-400 dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all duration-400 dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-          </div>
-        </header>
-        <main className="flex-1 p-6 overflow-auto">{renderPage()}</main>
-        sidebarinset
+          </header>
+          <main className="flex-1 p-6 overflow-auto">{renderPage()}</main>
+        </SidebarInset>
       </div>
     </div>
   );
