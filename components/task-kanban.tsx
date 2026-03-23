@@ -130,26 +130,7 @@ export function TaskKanban() {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-6 md:grid-cols-3">
-        <Column
-          title="Today"
-          tasks={todayTasks}
-          status="today"
-          count={todayTasks.length}
-        />
-        <Column
-          title="Upcoming"
-          tasks={upcomingTasks}
-          status="upcoming"
-          count={upcomingTasks.length}
-        />
-        <Column
-          title="Completed"
-          tasks={completedTasks}
-          status="completed"
-          count={completedTasks.length}
-        />
-      </div>
+      <div className="grid gap-6 md:grid-cols-3"></div>
 
       <AddTaskModal
         open={!!editingTask}
