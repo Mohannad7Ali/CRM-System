@@ -7,7 +7,7 @@ import Dashboard from "@/components/content/Dashboard";
 import Contacts from "@/components/content/Contacts";
 import Tasks from "@/components/content/Tasks";
 import Funnels from "@/components/content/Funnels";
-import Analytics from "@/components/content/Analytics";
+import { Analytics } from "@/components/content/Analytics";
 import TeamChat from "@/components/content/TeamChat";
 import AppSidebar from "./AppSidebar";
 import useSidebarControl from "@/hooks/use-sidebar-control";
